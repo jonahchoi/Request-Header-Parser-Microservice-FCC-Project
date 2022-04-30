@@ -23,7 +23,10 @@ app.get("/", function (req, res) {
 // your first API endpoint... 
 app.get("/api/whoami", function (req, res) {
   let ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
-  ip = ip.substr(0,)
+  let stop = ip.indexOf(',');
+  console.log(stop);
+  ip = ip.substr(0,14);
+  
   res.json({
      ipadress: ip, 
   //   language: '', 
