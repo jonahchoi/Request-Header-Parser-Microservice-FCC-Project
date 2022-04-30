@@ -24,15 +24,14 @@ app.get("/", function (req, res) {
 app.get("/api/whoami", function (req, res) {
   let ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
   let stop = ip.indexOf(',');
-  console.log(stop);
-  ip = ip.substr(0,14);
+  ip = ip.substr(0,stop);
   let language = req.header("accept-language");
-  let software = req.header('')
-  console.log(language);
+  let software = req.header('User-Agent')
+
   res.json({
-     ipadress: ip, 
+     ipaddress: ip, 
      language: language, 
-  //   software: ''
+     software: software
   });
 });
 
