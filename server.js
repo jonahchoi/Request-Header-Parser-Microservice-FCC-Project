@@ -27,10 +27,11 @@ app.get("/api/whoami", function (req, res) {
   console.log(stop);
   ip = ip.substr(0,14);
   let language = req.header("accept-language");
+  let software = req.header('')
   console.log(language);
   res.json({
      ipadress: ip, 
-  //   language: language, 
+     language: language, 
   //   software: ''
   });
 });
